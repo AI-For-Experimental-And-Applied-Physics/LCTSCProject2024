@@ -1,0 +1,8 @@
+pydicom
+numpy
+scikit-image
+pandas
+SimpleITK
+dicom2nifti
+rt-utils
+matplotlib
