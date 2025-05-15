@@ -31,6 +31,7 @@ def preprocess_case(case_id: str, ct_path: str, rtstruct_path: str, plot=False):
             np.savez_compressed(
                 OUTPUT_DIR / f"{case_id}.npz",
                 image=image,
+                pixel_dim=pixel_dim,
                 **mask_dict
             )
             print(f"[✓] Saved {case_id} with {len(mask_dict)} ROIs.")
@@ -41,7 +42,7 @@ def preprocess_case(case_id: str, ct_path: str, rtstruct_path: str, plot=False):
     except Exception as e:
         print(f"[!] Error processing {case_id}: {e}")
 
-def plot_roi_overlays(image, masks, roi_names, pixel_dim=None):
+def plot_roi_overlays(image, masks, roi_names, pixel_dim=[1,1,1]):
     print(pixel_dim)
     # Define colors for ROIs
     colors = plt.colormaps.get_cmap('tab10')
